@@ -5442,10 +5442,12 @@ ig.module('game.main').requires('impact.game', 'impact.font', 'game.menus.about'
             }
         },
         setGame: function() {
-        // ---> NAYI LINE: Recording start karne ke liye
+        // === NAYA BADLAV: GAME START HONE PAR RECORDING SHURU KAREIN ===
+            console.log("GAME STARTED - Calling startRecording()");
             if (typeof startRecording === 'function') {
                 startRecording();
             }
+            // ===========================================================
             
             this.reset();
             this.gameTransitionTimer = new ig.Timer(2);
@@ -5459,10 +5461,12 @@ ig.module('game.main').requires('impact.game', 'impact.font', 'game.menus.about'
             this.emps = 3;
         },
         setGameOver: function() {
-        // ---> NAYI LINE: Recording stop karne ke liye
+      // === NAYA BADLAV: GAME OVER HONE PAR RECORDING BAND KAREIN ===
+            console.log("GAME OVER DETECTED - Calling stopRecording()");
             if (typeof stopRecording === 'function') {
                 stopRecording();
             }
+            // ==========================================================
             
             if (this.score > this.personalBest) {
                 this.isPersonalBest = true;
