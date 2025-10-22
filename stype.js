@@ -5480,6 +5480,12 @@ ig.module('game.main').requires('impact.game', 'impact.font', 'game.menus.about'
             ig.music.fadeOut(1);
         },
         showGameOverScreen: function() {
+        // === FINAL BADLAV: Recording ko yahan, bilkul sahi time par stop karein ===
+            console.log("GAME OVER SCREEN SHOWN - Calling stopRecording()");
+            if (typeof stopRecording === 'function') {
+                stopRecording();
+            }
+            // ======================================================================
             this.menu = new MenuGameOver();
             if (this.adPage && !localStorage.getItem('removeAds')) {
                 this.adPage.show();
