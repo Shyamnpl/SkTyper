@@ -9,9 +9,9 @@ const upload = multer({ dest: 'uploads/' }); // Temporary storage for uploads
 // --- Configure Cloudinary ---
 // You need to get these credentials from your Cloudinary account
 cloudinary.config({ 
-  cloud_name: 'YOUR_CLOUD_NAME', 
-  api_key: 'YOUR_API_KEY', 
-  api_secret: 'YOUR_API_SECRET' 
+  cloud_name: 'dublbe56c', 
+  api_key: '839466264455988', 
+  api_secret: 'cXFzWltEqU2zw_O8QSUjMDD0GzM' 
 });
 
 // --- API Endpoints ---
