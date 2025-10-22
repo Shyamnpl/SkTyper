@@ -2,9 +2,12 @@ const express = require('express');
 const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
 const { kv } = require('@vercel/kv');
+const cors = require('cors'); // <-- YEH LINE ADD KAREIN
 
 const app = express();
-const upload = multer({ dest: 'uploads/' }); // Temporary storage for uploads
+app.use(cors()); // <-- YEH LINE ADD KAREIN
+
+// ... baaki ka server code ...storage for uploads
 
 // --- Configure Cloudinary ---
 // You need to get these credentials from your Cloudinary account
