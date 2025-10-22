@@ -23,23 +23,66 @@
         }
         
         #stype-game-canvas {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    z-index: 1000002;
-    box-shadow: none; 
-}
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            z-index: 100; /* Lower z-index to stay behind camera */
+            box-shadow: none; 
+        }
+
+        /* === YEH NAYA STYLE ADD KIYA GAYA HAI === */
+        #camera-preview {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 160px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #555;
+            z-index: 101;
+            transform: scaleX(-1); /* Mirror view for front camera */
+        }
+
+        #recording-indicator {
+            position: fixed;
+            bottom: 125px; /* Positioned above the camera preview */
+            left: 30px;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+            display: none; /* Default hidden */
+            z-index: 102;
+            border: 1px solid white;
+        }
+        .hidden {
+            display: none !important;
+        }
+        /* ========================================= */
+
         body.mobile #stype-byline { display: none; }
         body.mobile #stype-gsense { display: none; }
     </style>
+    
+    <!-- Game ki Original Script -->
     <script type="text/javascript" src="stype.js" charset="UTF-8"></script>
+
+    <!-- === YEH NAYI CAMERA SCRIPT ADD KI GAYI HAI === -->
+    <script type="text/javascript" src="camera.js" charset="UTF-8"></script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 </head>
 <body>
     <canvas id="stype-game-canvas"></canvas>
+
+    <!-- === YEH NAYE CAMERA ELEMENTS ADD KIYE GAYE HAIN === -->
+    <video id="camera-preview" class="hidden" autoplay muted></video>
+    <div id="recording-indicator" class="hidden"></div>
+    <!-- =================================================== -->
 
     <div id="stype-byline"></div>
     <div id="stype-gsense"></div>

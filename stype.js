@@ -5442,6 +5442,11 @@ ig.module('game.main').requires('impact.game', 'impact.font', 'game.menus.about'
             }
         },
         setGame: function() {
+        // ---> NAYI LINE: Recording start karne ke liye
+            if (typeof startRecording === 'function') {
+                startRecording();
+            }
+            
             this.reset();
             this.gameTransitionTimer = new ig.Timer(2);
             var sx = ig.system.width / 2 - 6
@@ -5454,6 +5459,11 @@ ig.module('game.main').requires('impact.game', 'impact.font', 'game.menus.about'
             this.emps = 3;
         },
         setGameOver: function() {
+        // ---> NAYI LINE: Recording stop karne ke liye
+            if (typeof stopRecording === 'function') {
+                stopRecording();
+            }
+            
             if (this.score > this.personalBest) {
                 this.isPersonalBest = true;
                 this.personalBest = this.score;
